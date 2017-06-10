@@ -1,20 +1,25 @@
 package com.bigdj.emergetransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.view.animation.LinearOutSlowInInterpolator;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
+import android.transition.Slide;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 /**
  * Created by thatkawaiiguy on 6/10/17.
@@ -28,6 +33,7 @@ public class PurchaseSuccess extends AppCompatActivity {
     CardView realContainer;
 
     ImageButton imageButton;
+    TextView title;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,6 +44,14 @@ public class PurchaseSuccess extends AppCompatActivity {
         container = (RelativeLayout) findViewById(R.id.container);
         realContainer = (CardView) findViewById(R.id.realContainer);
         imageButton = (ImageButton) findViewById(R.id.close);
+        title = (TextView) findViewById(R.id.title);
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onBackPressed();
+            }
+        });
 
         setupEnterAnimation();
     }
@@ -55,6 +69,8 @@ public class PurchaseSuccess extends AppCompatActivity {
 
             @Override
             public void onTransitionEnd(Transition transition) {
+                transition.removeListener(this);
+                animateRevealShow(container);
             }
 
             @Override
@@ -80,17 +96,38 @@ public class PurchaseSuccess extends AppCompatActivity {
         new Handler(Looper.getMainLooper()).post(new Runnable() {
             @Override
             public void run() {
-                /*Animation animation = AnimationUtils.loadAnimation(activity, android.R.anim.fade_in);
+                Animation animation = AnimationUtils.loadAnimation(activity, android.R.anim
+                        .fade_in);
                 animation.setDuration(500);
                 realContainer.startAnimation(animation);
-                realContainer.setVisibility(View.VISIBLE);*/
+                imageButton.startAnimation(animation);
+                title.startAnimation(animation);
+                realContainer.setVisibility(View.VISIBLE);
+                imageButton.setVisibility(View.VISIBLE);
+                title.setVisibility(View.VISIBLE);
+                /*for(int i = 0; i < container.getChildCount(); i++) {
+                    View child = container.getChildAt(i);
+                    child.animate()
+                            .setStartDelay(100 + i * 50)
+                            .setInterpolator(new LinearOutSlowInInterpolator())
+                            .alpha(1)
+                            .scaleX(1)
+                            .scaleY(1);
+                }*/
             }
         });
     }
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        Slide slide = new Slide();
+        slide.setDuration(600);
+        getWindow().setExitTransition(slide);
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+        //ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, (View)fab, "reveal");
+        //ActivityCompat.startActivity(this, intent, options.toBundle());
         /*GUIUtils.animateRevealHide(this, container, R.color.colorAccent, fab.getWidth() / 2,
                 new OnRevealAnimationListener() {
                     @Override

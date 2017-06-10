@@ -24,7 +24,7 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".PurchaseSuccess"
-            android:theme="@style/AppTheme.NoActionBarTranslucent"/>
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
