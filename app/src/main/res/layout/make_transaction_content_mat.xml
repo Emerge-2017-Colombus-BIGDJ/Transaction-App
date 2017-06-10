@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              app:layout_behavior="@string/appbar_scrolling_view_behavior"
+              tools:context="com.bigdj.emergetransaction.TransactionActivity"
+              tools:showIn="@layout/make_transaction_mat">
+
+        <FrameLayout
+            android:layout_marginTop="12dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:tint="?android:textColorPrimary"
+                android:layout_marginTop="14dp"
+                android:layout_gravity="center_vertical"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:src="@drawable/calendar"/>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="52dp" >
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Expires: "
+                    android:textColor="?android:textColorPrimary"
+                    android:textSize="16sp"/>
+            </android.support.design.widget.TextInputLayout>
+        </FrameLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginTop="14dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/credit_card_dark"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="52dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Code: "
+                android:textColor="?android:textColorPrimary"
+                android:textSize="16sp"/>
+        </android.support.design.widget.TextInputLayout>
+    </FrameLayout>
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_marginTop="14dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:src="@drawable/map_marker"/>
+
+        <android.support.design.widget.TextInputLayout
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="52dp">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Zip: "
+                android:textColor="?android:textColorPrimary"
+                android:textSize="16sp"/>
+        </android.support.design.widget.TextInputLayout>
+    </FrameLayout>
+
+</LinearLayout>

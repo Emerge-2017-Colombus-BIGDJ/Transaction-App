@@ -1,5 +1,6 @@
 package com.bigdj.emergetransaction;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,7 +15,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.make_transaction_mat);
+        setContentView(R.layout.activity_main_mat);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -22,10 +23,8 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-                        Intent intent = new Intnent(this, TransactionActivity.class);
-                        startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), TransactionActivity.class);
+                startActivity(intent);
             }
         });
     }
