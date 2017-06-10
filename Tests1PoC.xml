@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.thegr.myapplication.MainActivity">
+
+    <TextView
+        android:layout_width="465dp"
+        android:layout_height="274dp"
+        android:layout_marginBottom="523dp"
+        android:layout_marginLeft="68dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Click button when it appears!"
+        android:textAlignment="center"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="75sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="68dp" />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="544dp"
+        android:layout_height="385dp"
+        android:background="@android:color/holo_red_dark"
+        android:text="Click!"
+        android:textSize="100sp"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="344dp" />
+
+</android.support.constraint.ConstraintLayout>
