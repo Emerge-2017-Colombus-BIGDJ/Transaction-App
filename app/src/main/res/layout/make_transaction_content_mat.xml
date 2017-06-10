@@ -6,7 +6,7 @@
               android:layout_height="match_parent"
               android:orientation="vertical"
               app:layout_behavior="@string/appbar_scrolling_view_behavior"
-              tools:context="com.bigdj.emergetransaction.TransactionActivity"
+              tools:context="com.bigdj.emergetransaction.MatTransactionActivity"
               tools:showIn="@layout/make_transaction_main_mat">
 
         <FrameLayout

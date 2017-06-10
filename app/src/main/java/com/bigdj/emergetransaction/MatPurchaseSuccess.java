@@ -6,9 +6,7 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.view.animation.LinearOutSlowInInterpolator;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.transition.Slide;
@@ -25,7 +23,7 @@ import android.widget.TextView;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class PurchaseSuccess extends AppCompatActivity {
+public class MatPurchaseSuccess extends AppCompatActivity {
 
     FloatingActionButton fab;
 
@@ -60,11 +58,12 @@ public class PurchaseSuccess extends AppCompatActivity {
         Transition transition = TransitionInflater.from(this).inflateTransition(R.transition
                 .changebounds_with_arcmotion);
         transition.setDuration(500);
+        final AppCompatActivity activity = this;
         getWindow().setSharedElementEnterTransition(transition);
         transition.addListener(new Transition.TransitionListener() {
             @Override
             public void onTransitionStart(Transition transition) {
-
+                activity.getWindow().setStatusBarColor(ContextCompat.getColor(activity, R.color.colorAccentDark));
             }
 
             @Override
@@ -123,7 +122,7 @@ public class PurchaseSuccess extends AppCompatActivity {
         Slide slide = new Slide();
         slide.setDuration(600);
         getWindow().setExitTransition(slide);
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, MatHomeActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         //ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, (View)fab, "reveal");
