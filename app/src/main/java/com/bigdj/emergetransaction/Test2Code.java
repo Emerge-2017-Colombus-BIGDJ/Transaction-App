@@ -11,7 +11,7 @@ import android.widget.Button;
  * Created by thegr on 6/10/2017.
  */
 
-public class Tests2Code extends AppCompatActivity {
+public class Test2Code extends AppCompatActivity {
 
     int textTest = 0;
     @Override

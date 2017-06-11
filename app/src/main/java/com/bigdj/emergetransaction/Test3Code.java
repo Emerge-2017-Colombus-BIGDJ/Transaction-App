@@ -35,7 +35,6 @@ public class Test3Code extends AppCompatActivity {
 
         Intent intent = new Intent(this, Test3Code.class);
         intent.putExtra("option", option);
-        intent.putExtra(option);
         startActivity(intent);
     }
 
