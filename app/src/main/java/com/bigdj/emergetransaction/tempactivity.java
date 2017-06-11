@@ -89,8 +89,6 @@ public class tempactivity extends AppCompatActivity {
         textureView = (TextureView) findViewById(R.id.texture);
         assert textureView != null;
         textureView.setSurfaceTextureListener(textureListener);
-        takePictureButton = (Button) findViewById(R.id.btn_takepicture);
-        assert takePictureButton != null;
         final Handler handler = new Handler();
         TimerTask timertask = new TimerTask() {
             @Override
@@ -112,6 +110,7 @@ public class tempactivity extends AppCompatActivity {
     TextureView.SurfaceTextureListener textureListener = new TextureView.SurfaceTextureListener() {
         @Override
         public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+            Log.d("TextureMemes", String.valueOf(surface));
             openCamera();
         }
         @Override
@@ -129,6 +128,7 @@ public class tempactivity extends AppCompatActivity {
         @Override
         public void onOpened(CameraDevice camera) {
             cameraDevice = camera;
+            Log.d("CameraMemes", String.valueOf(cameraDevice));
             createCameraPreview();
         }
         @Override
@@ -172,7 +172,6 @@ public class tempactivity extends AppCompatActivity {
     protected synchronized void takePicture() {
         if (null == cameraDevice) {
             Log.e(TAG, "cameraDevice is null");
-            return;
         }
         final CameraManager manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         try {

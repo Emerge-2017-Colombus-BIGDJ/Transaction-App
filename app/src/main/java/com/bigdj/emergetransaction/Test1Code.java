@@ -14,12 +14,13 @@ import android.widget.Button;
  */
 
 public class Test1Code extends AppCompatActivity {
+    long showTime = 0;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tests1poc);
 
-        final long showTime = 0;
+
         //3 + 3 + 1
         //6 or higher material
         //4 or higher, simple
