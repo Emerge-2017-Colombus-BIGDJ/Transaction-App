@@ -93,8 +93,6 @@ public class SuccessActivityMat extends KairosActivity {
             public void onTransitionEnd(Transition transition) {
                 transition.removeListener(this);
                 animateRevealShow(container);
-
-                initializeCamera();
             }
 
             @Override

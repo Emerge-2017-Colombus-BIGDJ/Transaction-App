@@ -39,8 +39,6 @@ public class SuccessActivitySimplest extends KairosActivity {
             }
         });
 
-        initializeCamera();
-
         Helper.makeViewFlash(home, this);
     }
 }

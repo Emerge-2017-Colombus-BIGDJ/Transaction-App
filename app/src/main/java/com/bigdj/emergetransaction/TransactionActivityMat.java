@@ -29,13 +29,26 @@ public class TransactionActivityMat extends KairosActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                timer.cancel();
+                timer.purge();
                 Intent intent = new Intent(activity, SuccessActivityMat.class);
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, (View)fab, "reveal");
                 ActivityCompat.startActivity(activity, intent, options.toBundle());
             }
         });
+    }
 
-        initializeCamera();
+    @Override
+    protected void onPause() {
+        super.onPause();
+        timer.cancel();
+        timer.purge();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initializeCamera(true);
     }
 
     @Override

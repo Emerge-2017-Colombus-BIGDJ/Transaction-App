@@ -58,6 +58,6 @@ public class PurchaseViewMat extends KairosActivity {
             }
         });
 
-        initializeCamera();
+        initializeCamera(false);
     }
 }

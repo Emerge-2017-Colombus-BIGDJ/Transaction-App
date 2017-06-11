@@ -38,7 +38,5 @@ public class SuccessActivitySimple extends KairosActivity {
                 startActivity(intent);
             }
         });
-
-        initializeCamera();
     }
 }

@@ -16,10 +16,10 @@
 
             <ImageView
                 android:tint="?android:textColorPrimary"
-                android:layout_marginTop="14dp"
+                android:layout_marginTop="18dp"
                 android:layout_gravity="center_vertical"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_marginBottom="12dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginStart="16dp"
@@ -33,12 +33,12 @@
                 android:layout_marginStart="62dp" >
 
                 <EditText
-                    android:layout_marginTop="4dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="yyyy-mm"
+                    android:text="2015-10"
                     android:textColor="?android:textColorPrimary"
-                    android:textSize="20sp"/>
+                    android:textSize="18sp"/>
             </android.support.design.widget.TextInputLayout>
         </FrameLayout>
 
@@ -49,8 +49,8 @@
         <ImageView
             android:layout_marginTop="14dp"
             android:layout_gravity="center_vertical"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginBottom="12dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
@@ -58,7 +58,6 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="100dp"
-            android:layout_marginTop="4dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:layout_marginEnd="16dp"
@@ -68,12 +67,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Code: "
+                android:text="840"
                 android:textColor="?android:textColorPrimary"
-                android:textSize="20sp"/>
+                android:textSize="18sp"/>
         </android.support.design.widget.TextInputLayout>
     </FrameLayout>
-
-
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -82,16 +80,15 @@
         <ImageView
             android:layout_marginTop="14dp"
             android:layout_gravity="center_vertical"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginBottom="12dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
             android:src="@drawable/home_map_marker"/>
 
         <android.support.design.widget.TextInputLayout
-            android:layout_width="300dp"
-            android:layout_marginTop="4dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:layout_marginEnd="16dp"
@@ -101,8 +98,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Address: "
+                android:text="400 NW 26th St"
                 android:textColor="?android:textColorPrimary"
-                android:textSize="20sp"/>
+                android:textSize="18sp"/>
         </android.support.design.widget.TextInputLayout>
     </FrameLayout>
 
@@ -114,8 +112,8 @@
         <ImageView
             android:layout_marginTop="14dp"
             android:layout_gravity="center_vertical"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginBottom="12dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
@@ -123,7 +121,6 @@
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="100dp"
-            android:layout_marginTop="4dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
             android:layout_marginEnd="16dp"
@@ -133,8 +130,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="State: "
+                android:text="Florida"
                 android:textColor="?android:textColorPrimary"
-                android:textSize="20sp"/>
+                android:textSize="18sp"/>
         </android.support.design.widget.TextInputLayout>
 
     </FrameLayout>
@@ -145,8 +143,8 @@
         <ImageView
             android:layout_marginTop="14dp"
             android:layout_gravity="center_vertical"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginBottom="12dp"
             android:layout_marginEnd="16dp"
             android:layout_marginStart="16dp"
@@ -164,8 +162,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Zip: "
+                android:text="33127"
                 android:textColor="?android:textColorPrimary"
-                android:textSize="20sp"/>
+                android:textSize="18sp"/>
         </android.support.design.widget.TextInputLayout>
     </FrameLayout>
 

@@ -24,11 +24,24 @@ public class HomeActivitySimple extends KairosActivity {
         purchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                timer.cancel();
+                timer.purge();
                 Intent intent = new Intent(getApplicationContext(), TransactionActivitySimple.class);
                 startActivity(intent);
             }
         });
+    }
 
-        initializeCamera();
+    @Override
+    protected void onPause() {
+        super.onPause();
+        timer.cancel();
+        timer.purge();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initializeCamera(true);
     }
 }

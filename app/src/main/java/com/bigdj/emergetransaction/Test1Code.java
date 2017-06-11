@@ -2,10 +2,8 @@ package com.bigdj.emergetransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
@@ -15,49 +13,51 @@ import android.widget.Button;
 
 public class Test1Code extends AppCompatActivity {
 
-    long showTime = 0;
+    int textTest = 0;
+    int result = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tests1poc);
+        setContentView(R.layout.test1);
 
-        //3 + 3 + 1
-        //6 or higher material
-        //4 or higher, simple
-        //lower simplest
-
-        final Button click = (Button) findViewById(R.id.click);
-        click.setOnClickListener(new View.OnClickListener() {
+        final Button choice1 = (Button) findViewById(R.id.choice_1_button);
+        choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                long difference = System.currentTimeMillis() - showTime;
-                int result;
-                if (difference < 1500)
-                    result = 3;
-                else if (difference < 3000) {
-                    result = 2;
-                } else {
-                    result = 0;
-                }
-                Intent intent = new Intent(getApplicationContext(), Test2Code.class);
-                intent.putExtra("result", result);
-                startActivity(intent);
+
+                textTest = 3;
+                launchActivity();
             }
         });
-
-        Handler handler = new Handler();
-        handler.postDelayed(new Runnable() {
+        final Button choice2 = (Button) findViewById(R.id.choice_2_button);
+        choice2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        click.setVisibility(View.VISIBLE);
-                        showTime = System.currentTimeMillis();
-                    }
-                });
+            public void onClick(View view) {
+
+                textTest = 2;
+
+                launchActivity();
             }
-        }, 2500 + (int) (Math.random()*1500));
+        });
+        final Button choice3 = (Button) findViewById(R.id.choice_3_button);
+        choice3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                textTest = 1;
+
+                launchActivity();
+            }
+        });
+    }
+
+
+    private void launchActivity() {
+
+        Intent intent = new Intent(this, Test2Code.class);
+        intent.putExtra("result", result + textTest);
+        startActivity(intent);
+        finish();
     }
 }

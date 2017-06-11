@@ -36,6 +36,8 @@ public class TransactionActivitySimple extends KairosActivity {
                         findViewById(R.id.simple3).setVisibility(View.VISIBLE);
                         break;
                     case 2:
+                        timer.cancel();
+                        timer.purge();
                         Intent intent = new Intent(getApplicationContext(), SuccessActivitySimple.class);
                         startActivity(intent);
                         break;
@@ -50,6 +52,8 @@ public class TransactionActivitySimple extends KairosActivity {
             public void onClick(View view) {
                 switch(count) {
                     case 0:
+                        timer.cancel();
+                        timer.purge();
                         finish();
                         break;
                     case 1:
@@ -64,8 +68,6 @@ public class TransactionActivitySimple extends KairosActivity {
                 count--;
             }
         });
-
-        initializeCamera();
     }
 
     @Override
@@ -79,5 +81,11 @@ public class TransactionActivitySimple extends KairosActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        reinitTimer();
     }
 }

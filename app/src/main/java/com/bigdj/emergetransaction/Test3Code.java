@@ -20,7 +20,7 @@ public class Test3Code extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test3);
 
-        final int results = getIntent().getExtras().getInt("option");
+        final int results = getIntent().getExtras().getInt("result");
 
         final Button choice1 = (Button) findViewById(R.id.settings_test_button);
         choice1.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +53,8 @@ public class Test3Code extends AppCompatActivity {
         else
             intent = new Intent(this, HomeActivitySimplest.class);
         intent.putExtra("option", option);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
+        finish();
     }
 }

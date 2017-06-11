@@ -92,6 +92,9 @@ public class KairosActivity extends AppCompatActivity {
 
     Map<String, Class<?>> activities;
 
+    Handler handler;
+    Runnable mRunnable;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,39 +112,57 @@ public class KairosActivity extends AppCompatActivity {
 
     Timer timer;
 
-    public void initializeCamera() {
+    public void initializeCamera(boolean repeat) {
         textureView = (TextureView) findViewById(R.id.texture);
         assert textureView != null;
         textureView.setSurfaceTextureListener(textureListener);
-        final Handler handler = new Handler();
+        handler = new Handler();
+        mRunnable = new Runnable() {
+            public void run() {
+                Log.d("running", String.valueOf(currentlyCapturing));
+                if(!currentlyCapturing) {
+                    currentlyCapturing = true;
+                    takePicture();
+                }
+            }
+        };
+
+        reinitTimer();
+    }
+
+    public void reinitTimer(){
+        handler = new Handler();
+        mRunnable = new Runnable() {
+            public void run() {
+                Log.d("running", String.valueOf(currentlyCapturing));
+                if(!currentlyCapturing) {
+                    currentlyCapturing = true;
+                    takePicture();
+                }
+            }
+        };
+
         TimerTask timertask = new TimerTask() {
             @Override
             public void run() {
-                handler.post(new Runnable() {
-                    public void run() {
-                        Log.d("running", String.valueOf(currentlyCapturing));
-                        if (!currentlyCapturing) {
-                            currentlyCapturing = true;
-                            takePicture();
-                        }
-                    }
-                });
+                handler.post(mRunnable);
             }
         };
         timer = new Timer();
-        timer.schedule(timertask, 1000, 3000);
+        timer.schedule(timertask, 800, 800);
     }
+
 
     public void changeActivity(int id) {
         Class<?> classs = this.getClass();
-        if (classs != null) {
-            Toast.makeText(this, classs.getSimpleName(), Toast.LENGTH_LONG).show();
+        if(classs != null) {
+            //Toast.makeText(this, classs.getSimpleName(), Toast.LENGTH_LONG).show();
             String oldname = classs.getSimpleName();
             String name = oldname.replace("Mat", "");
             name = name.replace("Simplest", "");
             //great catch 2k17 david
             name = name.replace("Simple", "");
-            switch (id) {
+            switch(id) {
                 case 1:
                     name += "Simplest";
                     break;
@@ -158,8 +179,8 @@ public class KairosActivity extends AppCompatActivity {
                     name += "Mat";
                     break;
             }
-            if (!oldname.equals(name)) {
-            Log.e("NAME:MEMES",name);
+            if(!oldname.equals(name)) {
+                Log.e("NAME:MEMES", name);
                 Intent intent = new Intent(this, activities.get(name));
                 startActivity(intent);
                 finish();
@@ -205,7 +226,7 @@ public class KairosActivity extends AppCompatActivity {
         public void onError(CameraDevice camera, int error) {
             try {
                 cameraCaptureSessions.abortCaptures();
-            } catch (CameraAccessException e) {
+            } catch(CameraAccessException e) {
                 e.printStackTrace();
             }
             cameraDevice.close();
@@ -234,37 +255,39 @@ public class KairosActivity extends AppCompatActivity {
             mBackgroundThread.join();
             mBackgroundThread = null;
             mBackgroundHandler = null;
-        } catch (InterruptedException e) {
+        } catch(InterruptedException e) {
             e.printStackTrace();
         }
     }
 
     protected synchronized void takePicture() {
-        if (null == cameraDevice) {
+        if(null == cameraDevice) {
             Log.e(TAG, "cameraDevice is null");
+            currentlyCapturing = false;
+            return;
         }
         final CameraManager manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         try {
             final CameraCharacteristics characteristics = manager.getCameraCharacteristics
                     (cameraDevice.getId());
             Size[] jpegSizes = null;
-            if (characteristics != null) {
+            if(characteristics != null) {
                 jpegSizes = characteristics.get(CameraCharacteristics
                         .SCALER_STREAM_CONFIGURATION_MAP).getOutputSizes(ImageFormat.JPEG);
             }
             int width = 640;
             int height = 480;
-            if (jpegSizes != null && 0 < jpegSizes.length) {
+            if(jpegSizes != null && 0 < jpegSizes.length) {
                 width = jpegSizes[0].getWidth();
                 height = jpegSizes[0].getHeight();
             }
-            if (textureView.getSurfaceTexture() != null) {
+            if(textureView.getSurfaceTexture() != null) {
                 ImageReader reader = ImageReader.newInstance(width, height, ImageFormat.JPEG, 1);
                 List<Surface> outputSurfaces = new ArrayList<Surface>(2);
                 outputSurfaces.add(reader.getSurface());
                 outputSurfaces.add(new Surface(textureView.getSurfaceTexture()));
                 final CaptureRequest.Builder captureBuilder = cameraDevice.createCaptureRequest
-                        (CameraDevice.TEMPLATE_STILL_CAPTURE);
+                        (CameraDevice.TEMPLATE_PREVIEW);
                 captureBuilder.addTarget(reader.getSurface());
                 captureBuilder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_AUTO);
                 // Orientation
@@ -282,14 +305,14 @@ public class KairosActivity extends AppCompatActivity {
                             byte[] bytes = new byte[buffer.capacity()];
                             buffer.get(bytes);
                             save(bytes);
-                        } catch (FileNotFoundException e) {
+                        } catch(FileNotFoundException e) {
                             currentlyCapturing = false;
                             e.printStackTrace();
-                        } catch (IOException e) {
+                        } catch(IOException e) {
                             currentlyCapturing = false;
                             e.printStackTrace();
                         } finally {
-                            if (image != null) {
+                            if(image != null) {
                                 image.close();
                             }
                         }
@@ -307,8 +330,8 @@ public class KairosActivity extends AppCompatActivity {
                         OutputStream output = null;
                         try {
                             Bitmap x = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-                            x = Bitmap.createScaledBitmap(x, 320, 200, false);
-                            x = rotateImage(x, 270);
+                            x = Bitmap.createScaledBitmap(x, 200, 320, false);
+                            x = rotateImage(x, 180);
                             Log.d("rotation", String.valueOf(characteristics.get
                                     (CameraCharacteristics.SENSOR_ORIENTATION)));
                             String app_id = "f6af176b";
@@ -328,17 +351,18 @@ public class KairosActivity extends AppCompatActivity {
                                 OutputStream os = client.getOutputStream();
                                 BufferedWriter writer = new BufferedWriter(
                                         new OutputStreamWriter(os, "UTF-8"));
-                                writer.write("{" + "\"image\"" + ":" + "\"" + encoded + "\"," + "\"gallery_name\":\"gallerytest4\"" + "}");
+                                writer.write("{" + "\"image\"" + ":" + "\"" + encoded + "\"," +
+                                        "\"gallery_name\":\"gallerytest4\"" + "}");
                                 writer.flush();
                                 writer.close();
                                 os.close();
                                 int responseCode = client.getResponseCode();
                                 String response = "";
-                                if (responseCode == HttpsURLConnection.HTTP_OK) {
+                                if(responseCode == HttpsURLConnection.HTTP_OK) {
                                     String line;
                                     BufferedReader br = new BufferedReader(new InputStreamReader
                                             (client.getInputStream()));
-                                    while ((line = br.readLine()) != null) {
+                                    while((line = br.readLine()) != null) {
                                         response += line;
                                     }
                                 } else {
@@ -351,22 +375,24 @@ public class KairosActivity extends AppCompatActivity {
                                 JSONObject transaction = image.getJSONObject("transaction");
                                 Log.d("Transaction: ", String.valueOf(transaction));
                                 String status = (String) transaction.get("subject_id");
-                                Toast.makeText(getApplicationContext(), status, Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getApplicationContext(), status, Toast
+                                //        .LENGTH_SHORT).show();
                                 changeActivity(Integer.valueOf(status));
-                            } catch (JSONException e) {
-                                Toast.makeText(getApplicationContext(), "ERR0R", Toast.LENGTH_SHORT).show();
-                            } catch (MalformedURLException error) {
-                            } catch (SocketTimeoutException error) {
-                            } catch (IOException error) {
+                            } catch(JSONException e) {
+                               // Toast.makeText(getApplicationContext(), "ERR0R", Toast
+                               //         .LENGTH_SHORT).show();
+                            } catch(MalformedURLException error) {
+                            } catch(SocketTimeoutException error) {
+                            } catch(IOException error) {
                             } finally {
                                 currentlyCapturing = false;
                                 //if (null != output) {
                                 //    output.close();
                                 //}
                             }
-                        } catch (MalformedURLException e) {
+                        } catch(MalformedURLException e) {
                             e.printStackTrace();
-                        } catch (IOException e) {
+                        } catch(IOException e) {
                             currentlyCapturing = false;
                             e.printStackTrace();
                         }
@@ -394,7 +420,7 @@ public class KairosActivity extends AppCompatActivity {
                         try {
                             session.capture(captureBuilder.build(), captureListener,
                                     mBackgroundHandler);
-                        } catch (CameraAccessException e) {
+                        } catch(CameraAccessException e) {
                             e.printStackTrace();
                         }
                     }
@@ -408,7 +434,7 @@ public class KairosActivity extends AppCompatActivity {
                 textureView = (TextureView) findViewById(R.id.texture);
                 currentlyCapturing = false;
             }
-        } catch (CameraAccessException e) {
+        } catch(CameraAccessException e) {
             e.printStackTrace();
         }
     }
@@ -420,18 +446,18 @@ public class KairosActivity extends AppCompatActivity {
             texture.setDefaultBufferSize(imageDimension.getWidth(), imageDimension.getHeight());
             Surface surface = new Surface(texture);
             captureRequestBuilder = cameraDevice.createCaptureRequest(CameraDevice
-                    .TEMPLATE_PREVIEW);
+                    .TEMPLATE_STILL_CAPTURE);
             captureRequestBuilder.addTarget(surface);
             cameraDevice.createCaptureSession(Arrays.asList(surface), new CameraCaptureSession
                     .StateCallback() {
                 @Override
                 public synchronized void onConfigured(@NonNull CameraCaptureSession
                                                               cameraCaptureSession) {
-                    if (null == cameraDevice) {
+                    if(null == cameraDevice) {
                         return;
                     }
                     cameraCaptureSessions = cameraCaptureSession;
-                    if (!currentlyCapturing) {
+                    if(!currentlyCapturing) {
                         updatePreview();
                     }
                 }
@@ -440,7 +466,7 @@ public class KairosActivity extends AppCompatActivity {
                 public void onConfigureFailed(@NonNull CameraCaptureSession cameraCaptureSession) {
                 }
             }, null);
-        } catch (CameraAccessException e) {
+        } catch(CameraAccessException e) {
             e.printStackTrace();
         }
     }
@@ -457,7 +483,7 @@ public class KairosActivity extends AppCompatActivity {
             imageDimension = map.getOutputSizes(SurfaceTexture.class)[0];
             // Add permission for camera and let user grant the permission
 
-            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !=
+            if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !=
                     PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager
                     .PERMISSION_GRANTED) {
@@ -467,31 +493,31 @@ public class KairosActivity extends AppCompatActivity {
                 return;
             }
             manager.openCamera(cameraId, stateCallback, null);
-        } catch (CameraAccessException e) {
+        } catch(CameraAccessException e) {
             e.printStackTrace();
         }
         Log.e(TAG, "openCamera X");
     }
 
     protected synchronized void updatePreview() {
-        if (null == cameraDevice) {
+        if(null == cameraDevice) {
             Log.e(TAG, "updatePreview error, return");
         }
         captureRequestBuilder.set(CaptureRequest.CONTROL_MODE, CameraMetadata.CONTROL_MODE_AUTO);
         try {
             cameraCaptureSessions.capture(captureRequestBuilder.build(), null, mBackgroundHandler);
-        } catch (CameraAccessException e) {
+        } catch(CameraAccessException e) {
             e.printStackTrace();
         }
     }
 
     private void closeCamera() throws CameraAccessException {
-        if (null != cameraDevice) {
+        if(null != cameraDevice) {
             cameraCaptureSessions.abortCaptures();
             cameraDevice.close();
             cameraDevice = null;
         }
-        if (null != imageReader) {
+        if(null != imageReader) {
             cameraCaptureSessions.abortCaptures();
             imageReader.close();
             imageReader = null;
@@ -501,8 +527,8 @@ public class KairosActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions,
                                            @NonNull int[] grantResults) {
-        if (requestCode == REQUEST_CAMERA_PERMISSION) {
-            if (grantResults[0] == PackageManager.PERMISSION_DENIED) {
+        if(requestCode == REQUEST_CAMERA_PERMISSION) {
+            if(grantResults[0] == PackageManager.PERMISSION_DENIED) {
                 // close the app
                 //Toast.makeText(AndroidCameraApi.this, "Sorry!!!, you can't use this app without
                 // granting permission", Toast.LENGTH_LONG).show();
@@ -518,8 +544,8 @@ public class KairosActivity extends AppCompatActivity {
         textureView = (TextureView) findViewById(R.id.texture);
         Log.e(TAG, "onResume");
         startBackgroundThread();
-        if (textureView != null)
-            if (textureView.isAvailable()) {
+        if(textureView != null)
+            if(textureView.isAvailable()) {
                 openCamera();
             } else {
                 textureView.setSurfaceTextureListener(textureListener);
@@ -532,22 +558,46 @@ public class KairosActivity extends AppCompatActivity {
         //closeCamera();
         stopBackgroundThread();
         super.onPause();
-        timer.cancel();
+        //timer.cancel();
 
         /*try {
             killCam();
         } catch (CameraAccessException e) {
             e.printStackTrace();
+        }*/
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        super.startActivity(intent);
+        if(timer != null) {
+            timer.cancel();
+            timer.purge();
+        } else if(handler != null) {
+            if(mRunnable != null)
+                handler.removeCallbacks(mRunnable);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        if(timer != null) {
+            timer.cancel();
+            timer.purge();
+        } else if(handler != null) {
+            if(mRunnable != null)
+                handler.removeCallbacks(mRunnable);
         }
     }
 
     public void killCam() throws CameraAccessException {
-        if (cameraCaptureSessions != null)
+        if(cameraCaptureSessions != null)
             cameraCaptureSessions.abortCaptures();
 
-        if (cameraDevice != null) {
+        if(cameraDevice != null) {
             cameraDevice.close();
             cameraDevice = null;
-        }*/
+        }
     }
 }

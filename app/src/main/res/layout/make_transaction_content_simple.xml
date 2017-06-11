@@ -11,8 +11,9 @@
               tools:showIn="@layout/make_transaction_main_simple">
 
     <TextView
+        android:layout_marginTop="8dp"
         android:textColor="#000"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:text="Type your name:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -20,15 +21,15 @@
     <EditText
         android:layout_marginTop="4dp"
         android:hint="Type your name in this box:"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:text="Visa Inc."
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:textColor="#000"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:text="Type your card number:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -36,7 +37,7 @@
     <EditText
         android:layout_marginTop="4dp"
         android:hint="Type your card number in this box:"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:text="4895142232120006"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

@@ -11,7 +11,8 @@
 
     <TextView
         android:textColor="#000"
-        android:textSize="24sp"
+        android:layout_marginTop="16dp"
+        android:textSize="22sp"
         android:text="Type the card security code:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -19,7 +20,7 @@
     <EditText
         android:layout_marginTop="4dp"
         android:hint="Type the security code here:"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:text="840"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -27,7 +28,7 @@
     <TextView
         android:layout_marginTop="32dp"
         android:textColor="#000"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:text="Type your card expire date:"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
@@ -35,7 +36,7 @@
     <EditText
         android:layout_marginTop="4dp"
         android:hint="Type your card expire date here:"
-        android:textSize="24sp"
+        android:textSize="22sp"
         android:text="2015-10"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>

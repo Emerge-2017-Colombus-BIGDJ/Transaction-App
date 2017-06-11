@@ -23,8 +23,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/textView2"
         android:adjustViewBounds="true"
-        android:paddingLeft="128dp"
-        android:paddingRight="128dp"
+        android:paddingLeft="82dp"
+        android:paddingRight="82dp"
         android:paddingTop="64dp"
         android:paddingBottom="64dp"
         android:scaleType="fitCenter"
@@ -33,7 +33,7 @@
     <LinearLayout
         android:layout_below="@id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="110dp"
         android:layout_margin="16dp"
         android:orientation="horizontal"
         android:weightSum="2">
@@ -41,18 +41,18 @@
         <Button
             android:id="@+id/settings_test_button"
             android:layout_width="0dp"
-            android:layout_height="110dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Settings"
-            android:textSize="30sp"/>
+            android:textSize="28sp"/>
 
         <Button
             android:id="@+id/flower_button"
             android:layout_width="0dp"
-            android:layout_height="110dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="Flower"
-            android:textSize="30sp"/>
+            android:textSize="28sp"/>
     </LinearLayout>
 
 </RelativeLayout>

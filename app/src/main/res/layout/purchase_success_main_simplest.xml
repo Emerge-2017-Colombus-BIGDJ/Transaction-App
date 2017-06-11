@@ -33,7 +33,7 @@
                 android:text="PAYMENT COMPLETE"
                 android:textAlignment="center"
                 android:textColor="#fff"
-                android:textSize="45sp"/>
+                android:textSize="40sp"/>
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
@@ -50,5 +50,5 @@
         android:background="#4c8f50"
         android:text="HOME"
         android:textColor="#fff"
-        android:textSize="60sp"/>
+        android:textSize="50sp"/>
 </android.support.design.widget.CoordinatorLayout>

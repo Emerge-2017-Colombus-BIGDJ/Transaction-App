@@ -1,47 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                xmlns:app="http://schemas.android.com/apk/res-auto"
-                xmlns:tools="http://schemas.android.com/tools"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <TextView
-        android:layout_margin="24dp"
-        android:id="@+id/textView"
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="WHICH TEXT BELOW COMFORTABLE TO READ?"
+        android:padding="16dp"
+        android:fontFamily="sans-serif-condensed"
+        android:text="Click the button when it appears!"
         android:textAlignment="center"
-        android:textColor="#000"
-        android:textSize="45sp"/>
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="50sp"
+        android:textStyle="bold"/>
 
     <Button
-        android:layout_marginTop="32dp"
-        android:layout_below="@id/textView"
-        android:id="@+id/choice_1_button"
+        android:layout_margin="16dp"
+        android:layout_below="@id/title"
+        android:id="@+id/click"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="match_parent"
-        android:layout_height="127dp"
-        android:onClick="choice1"
-        android:text="Choice 1"
-        android:textSize="35sp"/>
-
-    <Button
-        android:layout_below="@id/choice_1_button"
-        android:id="@+id/choice_2_button"
-        android:layout_width="match_parent"
-        android:layout_height="127dp"
-        android:onClick="choice2"
-        android:text="Choice 2"
-        android:textSize="50sp"/>
-
-    <Button
-        android:layout_below="@id/choice_2_button"
-        android:id="@+id/choice_3_button"
-        android:layout_width="match_parent"
-        android:layout_height="127dp"
-        android:onClick="choice3"
-        android:text="Choice 3"
-        android:textSize="75sp"/>
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_red_dark"
+        android:text="Click!"
+        android:visibility="gone"
+        android:textSize="100sp"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="344dp" />
 
 </RelativeLayout>
