@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
@@ -7,66 +7,45 @@
     android:layout_height="match_parent"
     android:baselineAligned="false">
 
-    <Button
-        android:id="@+id/choice_3_button"
-        android:layout_width="474dp"
-        android:layout_height="127dp"
-        android:onClick="choice3"
-        android:text="Choice 3"
-        android:textSize="75sp"
-        tools:layout_editor_absoluteX="63dp"
-        tools:layout_editor_absoluteY="493dp" />
-
-    <Button
-        android:id="@+id/choice_next_button"
-        android:layout_width="638dp"
-        android:layout_height="122dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="705dp"
-        android:background="@android:color/holo_green_light"
-        android:onClick="next_choices"
-        android:text="NEXT"
-        android:textAlignment="center"
-        android:textSize="50sp"
-        app:layout_constraintHorizontal_bias="0.422"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_constraintLeft_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintTop_creator="1" />
-
-    <Button
-        android:id="@+id/choice_1_button"
-        android:layout_width="474dp"
-        android:layout_height="127dp"
-        android:onClick="choice1"
-        android:text="Choice 1"
-        android:textSize="35sp"
-        tools:layout_editor_absoluteX="63dp"
-        tools:layout_editor_absoluteY="245dp" />
-
-    <Button
-        android:id="@+id/choice_2_button"
-        android:layout_width="471dp"
-        android:layout_height="127dp"
-        android:onClick="choice2"
-        android:text="Choice 2"
-        android:textSize="50sp"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="367dp" />
-
     <TextView
         android:id="@+id/textView"
-        android:layout_width="469dp"
+        android:layout_width="584dp"
         android:layout_height="wrap_content"
         android:text="WHICH TEXT BELOW COMFORTABLE TO READ?"
         android:textAlignment="center"
         android:textSize="40sp"
         android:textColor="#000"
-        tools:layout_editor_absoluteX="66dp"
+        tools:layout_editor_absoluteX="8dp"
         tools:layout_editor_absoluteY="83dp" />
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/choice_1_button"
+        android:layout_width="88dp"
+        android:layout_height="127dp"
+        android:onClick="choice1"
+        android:text="Choice 1"
+        android:textSize="35sp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="245dp" />
+
+    <Button
+        android:id="@+id/choice_2_button"
+        android:layout_width="88dp"
+        android:layout_height="127dp"
+        android:onClick="choice2"
+        android:text="Choice 2"
+        android:textSize="50sp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="367dp" />
+
+    <Button
+        android:id="@+id/choice_3_button"
+        android:layout_width="584dp"
+        android:layout_height="127dp"
+        android:onClick="choice3"
+        android:text="Choice 3"
+        android:textSize="75sp"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="493dp" />
+
+</RelativeLayout>
