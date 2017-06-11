@@ -19,11 +19,16 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by thatkawaiiguy on 6/10/17.
  */
 
 public class MatPurchaseSuccess extends AppCompatActivity {
+
+    boolean firstRun = true;
 
     FloatingActionButton fab;
 
@@ -43,6 +48,10 @@ public class MatPurchaseSuccess extends AppCompatActivity {
         realContainer = (CardView) findViewById(R.id.realContainer);
         imageButton = (ImageButton) findViewById(R.id.close);
         title = (TextView) findViewById(R.id.title);
+        TextView time = (TextView) findViewById(R.id.time);
+        SimpleDateFormat sdf = new SimpleDateFormat("K:mm a");
+        String currentDate = sdf.format(new Date());
+        time.setText(currentDate);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -54,7 +63,21 @@ public class MatPurchaseSuccess extends AppCompatActivity {
         setupEnterAnimation();
     }
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+
+        if (!firstRun) {
+            container.setVisibility(View.VISIBLE);
+            realContainer.setVisibility(View.VISIBLE);
+            imageButton.setVisibility(View.VISIBLE);
+            title.setVisibility(View.VISIBLE);
+        }
+        firstRun = false;
+    }
+
     private void setupEnterAnimation() {
+
         Transition transition = TransitionInflater.from(this).inflateTransition(R.transition
                 .changebounds_with_arcmotion);
         transition.setDuration(500);

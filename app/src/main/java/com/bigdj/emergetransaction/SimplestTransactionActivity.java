@@ -2,9 +2,6 @@ package com.bigdj.emergetransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -15,13 +12,13 @@ import android.widget.Button;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class SimpleTransactionActivity extends AppCompatActivity {
+public class SimplestTransactionActivity extends AppCompatActivity {
     int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.make_transaction_main_simple);
+        setContentView(R.layout.make_transaction_main_simplest);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -39,7 +36,19 @@ public class SimpleTransactionActivity extends AppCompatActivity {
                         findViewById(R.id.simple3).setVisibility(View.VISIBLE);
                         break;
                     case 2:
-                        Intent intent = new Intent(getApplicationContext(), SimpleSuccessActivity.class);
+                        findViewById(R.id.simple3).setVisibility(View.GONE);
+                        findViewById(R.id.simple4).setVisibility(View.VISIBLE);
+                        break;
+                    case 3:
+                        findViewById(R.id.simple4).setVisibility(View.GONE);
+                        findViewById(R.id.simple5).setVisibility(View.VISIBLE);
+                        break;
+                    case 4:
+                        findViewById(R.id.simple5).setVisibility(View.GONE);
+                        findViewById(R.id.simple6).setVisibility(View.VISIBLE);
+                        break;
+                    case 5:
+                        Intent intent = new Intent(getApplicationContext(), SimplestSuccessActivity.class);
                         startActivity(intent);
                         break;
                 }
