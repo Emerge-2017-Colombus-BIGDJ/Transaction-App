@@ -14,12 +14,13 @@ import android.widget.Button;
  */
 
 public class Test1Code extends AppCompatActivity {
+    
     long showTime = 0;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tests1poc);
-
 
         //3 + 3 + 1
         //6 or higher material
@@ -31,13 +32,13 @@ public class Test1Code extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 long difference = System.currentTimeMillis() - showTime;
-                int result = 0;
-                if (difference < 1000)
+                int result;
+                if (difference < 1500)
                     result = 3;
-                else if (difference < 2000) {
+                else if (difference < 3000) {
                     result = 2;
                 } else {
-                    result = 3;
+                    result = 0;
                 }
                 Intent intent = new Intent(getApplicationContext(), Test2Code.class);
                 intent.putExtra("result", result);
@@ -57,6 +58,6 @@ public class Test1Code extends AppCompatActivity {
                     }
                 });
             }
-        }, 3500 + (int) (Math.random()*1500));
+        }, 2500 + (int) (Math.random()*1500));
     }
 }

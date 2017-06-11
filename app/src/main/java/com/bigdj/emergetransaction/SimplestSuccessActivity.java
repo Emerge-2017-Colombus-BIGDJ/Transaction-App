@@ -38,5 +38,7 @@ public class SimplestSuccessActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Helper.makeViewFlash(home, this);
     }
 }

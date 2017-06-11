@@ -39,7 +39,7 @@ public class Helper {
                 context.runOnUiThread(old);
             }
         };
-        mTimer1.schedule(tt1, 1, 1600);
-        mTimer1.schedule(tt2, 800, 1600);
+        mTimer1.schedule(tt1, 1, 2000);
+        mTimer1.schedule(tt2, 1000, 2000);
     }
 }
