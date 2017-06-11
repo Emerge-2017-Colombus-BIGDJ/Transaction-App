@@ -43,8 +43,6 @@ public class SuccessActivityMat extends KairosActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.purchase_success_main_mat);
 
-        takePicture();
-
         fab = (FloatingActionButton) findViewById(R.id.fab);
         container = (RelativeLayout) findViewById(R.id.container);
         realContainer = (CardView) findViewById(R.id.realContainer);
@@ -95,6 +93,8 @@ public class SuccessActivityMat extends KairosActivity {
             public void onTransitionEnd(Transition transition) {
                 transition.removeListener(this);
                 animateRevealShow(container);
+
+                initializeCamera();
             }
 
             @Override

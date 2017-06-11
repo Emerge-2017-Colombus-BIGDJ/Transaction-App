@@ -15,7 +15,7 @@ import java.util.Date;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class SuccessActivitySimple extends AppCompatActivity {
+public class SuccessActivitySimple extends KairosActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,5 +38,7 @@ public class SuccessActivitySimple extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        initializeCamera();
     }
 }

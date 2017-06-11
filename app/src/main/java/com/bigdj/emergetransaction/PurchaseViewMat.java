@@ -43,7 +43,6 @@ public class PurchaseViewMat extends KairosActivity {
             setContentView(R.layout.purchase_view_main_mat);
         else
             setContentView(R.layout.purchase_view_main_mat1);
-        initializeCamera();
 
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorAccentDark));
 
@@ -59,5 +58,6 @@ public class PurchaseViewMat extends KairosActivity {
             }
         });
 
+        initializeCamera();
     }
 }

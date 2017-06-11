@@ -12,7 +12,7 @@ import android.widget.Button;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class TransactionActivitySimple extends AppCompatActivity {
+public class TransactionActivitySimple extends KairosActivity {
     int count = 0;
 
     @Override
@@ -64,6 +64,8 @@ public class TransactionActivitySimple extends AppCompatActivity {
                 count--;
             }
         });
+
+        initializeCamera();
     }
 
     @Override

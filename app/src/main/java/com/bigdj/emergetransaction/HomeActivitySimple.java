@@ -11,7 +11,7 @@ import android.widget.Button;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class HomeActivitySimple extends AppCompatActivity {
+public class HomeActivitySimple extends KairosActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,5 +28,7 @@ public class HomeActivitySimple extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        initializeCamera();
     }
 }

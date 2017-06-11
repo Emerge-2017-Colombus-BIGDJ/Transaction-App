@@ -14,7 +14,7 @@ import android.view.View;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class TransactionActivityMat extends AppCompatActivity {
+public class TransactionActivityMat extends KairosActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,8 @@ public class TransactionActivityMat extends AppCompatActivity {
                 ActivityCompat.startActivity(activity, intent, options.toBundle());
             }
         });
+
+        initializeCamera();
     }
 
     @Override
