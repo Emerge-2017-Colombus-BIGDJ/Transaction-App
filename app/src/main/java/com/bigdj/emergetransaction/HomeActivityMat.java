@@ -1,10 +1,7 @@
 package com.bigdj.emergetransaction;
 
 import android.content.Intent;
-import android.hardware.camera2.CameraAccessException;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.Toolbar;
 import android.view.View;

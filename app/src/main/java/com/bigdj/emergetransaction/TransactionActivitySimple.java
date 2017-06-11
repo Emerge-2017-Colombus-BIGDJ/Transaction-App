@@ -63,7 +63,7 @@ public class TransactionActivitySimple extends KairosActivity {
                     case 0:
                         timer.cancel();
                         timer.purge();
-                        finish();
+                        onBackPressed();
                         break;
                     case 1:
                         findViewById(R.id.simple1).setVisibility(View.VISIBLE);
@@ -85,7 +85,7 @@ public class TransactionActivitySimple extends KairosActivity {
 
         //noinspection SimplifiableIfStatement
         if(id == R.id.home) {
-            finish();
+            onBackPressed();
             return true;
         }
 
@@ -93,10 +93,20 @@ public class TransactionActivitySimple extends KairosActivity {
     }
 
     @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        Intent intent = new Intent(getApplicationContext(), HomeActivitySimple.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+    }
+
+    @Override
     protected void onResume() {
         super.onResume();
         reinitTimer();
     }
+
     private static String readStream(InputStream in) {
         try {
             ByteArrayOutputStream bo = new ByteArrayOutputStream();

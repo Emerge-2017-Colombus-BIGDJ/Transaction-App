@@ -1,15 +1,13 @@
 package com.bigdj.emergetransaction;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -18,7 +16,7 @@ import android.widget.TextView;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class PurchaseViewMat extends AppCompatActivity {
+public class PurchaseViewSimple extends AppCompatActivity {
 
     boolean firstRun = true;
 
@@ -27,7 +25,7 @@ public class PurchaseViewMat extends AppCompatActivity {
     RelativeLayout container;
     CardView realContainer;
 
-    ImageButton imageButton;
+    Button imageButton;
     TextView title;
 
     @Override
@@ -35,15 +33,13 @@ public class PurchaseViewMat extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         if(getIntent().getExtras().getInt("item") == 0)
-            setContentView(R.layout.purchase_view_main_mat);
+            setContentView(R.layout.purchase_view_main_simple);
         else
-            setContentView(R.layout.purchase_view_main_mat1);
-
-        getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorAccentDark));
+            setContentView(R.layout.purchase_view_main_simple1);
 
         container = (RelativeLayout) findViewById(R.id.container);
         realContainer = (CardView) findViewById(R.id.realContainer);
-        imageButton = (ImageButton) findViewById(R.id.close);
+        imageButton = (Button) findViewById(R.id.close);
         title = (TextView) findViewById(R.id.title);
 
         imageButton.setOnClickListener(new View.OnClickListener() {

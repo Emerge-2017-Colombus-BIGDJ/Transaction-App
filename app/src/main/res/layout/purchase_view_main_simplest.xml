@@ -31,7 +31,7 @@
                 android:layout_marginBottom="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginTop="16dp"
-                android:text="PAYMENT COMPLETE"
+                android:text="PURCHASE INFORMATION"
                 android:textAlignment="center"
                 android:textColor="#fff"
                 android:textSize="45sp"/>
@@ -40,10 +40,10 @@
     </android.support.design.widget.AppBarLayout>
 
     <include
-        layout="@layout/purchase_success_content_simplest"/>
+        layout="@layout/purchase_view_content_simplest"/>
 
     <Button
-        android:id="@+id/home"
+        android:id="@+id/close"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_gravity="bottom"

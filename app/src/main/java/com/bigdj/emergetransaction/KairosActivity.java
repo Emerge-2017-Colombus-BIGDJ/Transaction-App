@@ -90,6 +90,8 @@ public class KairosActivity extends AppCompatActivity {
     private Handler mBackgroundHandler;
     private HandlerThread mBackgroundThread;
 
+    int trueCount = 0;
+
     Map<String, Class<?>> activities;
 
     Handler handler;
@@ -120,9 +122,17 @@ public class KairosActivity extends AppCompatActivity {
         mRunnable = new Runnable() {
             public void run() {
                 Log.d("running", String.valueOf(currentlyCapturing));
+                if (currentlyCapturing && trueCount > 3) {
+                    currentlyCapturing = false;
+                    trueCount = 0;
+                }
+
                 if(!currentlyCapturing) {
                     currentlyCapturing = true;
                     takePicture();
+                    trueCount = 0;
+                } else {
+                    trueCount++;
                 }
             }
         };
@@ -341,7 +351,7 @@ public class KairosActivity extends AppCompatActivity {
                             x.compress(Bitmap.CompressFormat.PNG, 100, blob);
                             byte[] byteArray = blob.toByteArray();
                             String encoded = Base64.encodeToString(byteArray, Base64.DEFAULT);
-                            HttpURLConnection client = (HttpURLConnection) url.openConnection();
+                            HttpURLConnection client;
                             try {
                                 client = (HttpURLConnection) url.openConnection();
                                 client.setRequestMethod("POST");

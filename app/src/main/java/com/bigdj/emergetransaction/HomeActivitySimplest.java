@@ -32,6 +32,33 @@ public class HomeActivitySimplest extends KairosActivity {
             }
         });
 
+        findViewById(R.id.first).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timer.cancel();
+                timer.purge();
+                //Slide slide = new Slide();
+                //slide.setDuration(500);
+                Intent intent = new Intent(getApplicationContext(), PurchaseViewSimplest.class);
+                intent.putExtra("item", 0);
+                startActivity(intent);
+            }
+        });
+
+        findViewById(R.id.second).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timer.cancel();
+                timer.purge();
+                //Slide slide = new Slide();
+                //slide.setDuration(500);
+                Intent intent = new Intent(getApplicationContext(), PurchaseViewSimplest.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("item", 1);
+                startActivity(intent);
+            }
+        });
+
         final AppCompatActivity activity = this;
         Helper.makeViewFlash(purchase, activity);
 

@@ -15,7 +15,7 @@ import java.util.Date;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class SuccessActivitySimple extends KairosActivity {
+public class SuccessActivitySimple extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class SuccessActivitySimple extends KairosActivity {
         aprovalCode.setText("Loading...");
         while(aprovalCode.getText() == "Loading...") {
             if(TransactionActivityMat.approvalCode != null) {
-                aprovalCode.setText(TransactionActivityMat.approvalCode);
+                aprovalCode.setText("Approval code: " + TransactionActivityMat.approvalCode);
             }
         }
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

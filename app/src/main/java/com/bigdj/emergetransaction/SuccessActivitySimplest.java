@@ -15,7 +15,7 @@ import java.util.Date;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class SuccessActivitySimplest extends KairosActivity {
+public class SuccessActivitySimplest extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,7 @@ public class SuccessActivitySimplest extends KairosActivity {
         while(aprovalCode.getText() == "Loading...") {
             if(TransactionActivityMat.approvalCode != null) {
                 if(!TransactionActivityMat.approvalCode.isEmpty()){
-                aprovalCode.setText(TransactionActivityMat.approvalCode);
+                aprovalCode.setText("Approval code: "+ TransactionActivityMat.approvalCode);
                 }
             }
         }

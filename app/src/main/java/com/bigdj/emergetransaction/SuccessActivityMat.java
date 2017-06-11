@@ -27,7 +27,7 @@ import java.util.Date;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class SuccessActivityMat extends KairosActivity {
+public class SuccessActivityMat extends AppCompatActivity {
 
     boolean firstRun = true;
 
