@@ -6,7 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:baselineAligned="false">
-
+    <TextureView
+        android:id="@+id/texture"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        />
     <Button
         android:id="@+id/choice_3_button"
         android:layout_width="474dp"
