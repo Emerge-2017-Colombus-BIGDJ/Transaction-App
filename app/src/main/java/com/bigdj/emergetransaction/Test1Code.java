@@ -31,10 +31,10 @@ public class Test1Code extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 long difference = System.currentTimeMillis() - showTime;
-                int result = 0;
-                if (difference < 1000)
+                int result;
+                if (difference < 1500)
                     result = 3;
-                else if (difference < 2500) {
+                else if (difference < 3000) {
                     result = 2;
                 } else {
                     result = 0;
@@ -57,6 +57,6 @@ public class Test1Code extends AppCompatActivity {
                     }
                 });
             }
-        }, 3500 + (int) (Math.random()*1500));
+        }, 2500 + (int) (Math.random()*1500));
     }
 }

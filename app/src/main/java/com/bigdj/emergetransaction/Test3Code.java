@@ -14,28 +14,45 @@ import android.widget.Button;
 public class Test3Code extends AppCompatActivity {
 
     int option = 0;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test3);
 
-        final Button choice1 = (Button) findViewById(R.id.choice_1_button);
+        final int results = getIntent().getExtras().getInt("option");
+
+        final Button choice1 = (Button) findViewById(R.id.settings_test_button);
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                option = 1;
+                option = 1 + results;
+                launchActivity();
+            }
+        });
 
+        final Button choice2 = (Button) findViewById(R.id.flower_button);
+        choice2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                option = results;
                 launchActivity();
             }
         });
 
     }
-    private void launchActivity() {
 
-        Intent intent = new Intent(this, Test3Code.class);
+    private void launchActivity() {
+        Intent intent;
+        if(option > 6) {
+            intent = new Intent(this, MatHomeActivity.class);
+        } else if(option >= 4)
+            intent = new Intent(this, SimpleHomeActivity.class);
+        else
+            intent = new Intent(this, SimplestHomeActivity.class);
         intent.putExtra("option", option);
         startActivity(intent);
     }
-
 }

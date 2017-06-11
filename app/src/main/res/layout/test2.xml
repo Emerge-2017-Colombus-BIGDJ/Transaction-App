@@ -1,51 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:baselineAligned="false">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+    <TextureView
+        android:id="@+id/texture"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_alignParentTop="true"
+        />
 
     <TextView
+        android:layout_margin="24dp"
         android:id="@+id/textView"
-        android:layout_width="584dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="WHICH TEXT BELOW COMFORTABLE TO READ?"
         android:textAlignment="center"
-        android:textSize="40sp"
         android:textColor="#000"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="83dp" />
+        android:textSize="45sp"/>
 
     <Button
+        android:layout_marginTop="32dp"
+        android:layout_below="@id/textView"
         android:id="@+id/choice_1_button"
-        android:layout_width="88dp"
+        android:layout_width="match_parent"
         android:layout_height="127dp"
         android:onClick="choice1"
         android:text="Choice 1"
-        android:textSize="35sp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="245dp" />
+        android:textSize="35sp"/>
 
     <Button
+        android:layout_below="@id/choice_1_button"
         android:id="@+id/choice_2_button"
-        android:layout_width="88dp"
+        android:layout_width="match_parent"
         android:layout_height="127dp"
         android:onClick="choice2"
         android:text="Choice 2"
-        android:textSize="50sp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="367dp" />
+        android:textSize="50sp"/>
 
     <Button
+        android:layout_below="@id/choice_2_button"
         android:id="@+id/choice_3_button"
-        android:layout_width="584dp"
+        android:layout_width="match_parent"
         android:layout_height="127dp"
         android:onClick="choice3"
         android:text="Choice 3"
-        android:textSize="75sp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="493dp" />
+        android:textSize="75sp"/>
 
 </RelativeLayout>

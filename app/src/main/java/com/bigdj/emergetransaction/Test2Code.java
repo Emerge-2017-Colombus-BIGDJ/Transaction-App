@@ -14,48 +14,51 @@ import android.widget.Button;
 public class Test2Code extends AppCompatActivity {
 
     int textTest = 0;
+    int result = 0;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.test2);
 
+        result = getIntent().getExtras(). getInt("result");
+
         final Button choice1 = (Button) findViewById(R.id.choice_1_button);
         choice1.setOnClickListener(new View.OnClickListener() {
             @Override
-                    public void onClick(View view) {
+            public void onClick(View view) {
 
-                textTest=0;
-
-                        launchActivity();
-                    }
-                });
-        final Button choice2 = (Button) findViewById(R.id.choice_1_button);
+                textTest = 3;
+                launchActivity();
+            }
+        });
+        final Button choice2 = (Button) findViewById(R.id.choice_2_button);
         choice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                textTest=1;
+                textTest = 2;
 
                 launchActivity();
             }
         });
-        final Button choice3 = (Button) findViewById(R.id.choice_1_button);
+        final Button choice3 = (Button) findViewById(R.id.choice_3_button);
         choice3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                textTest=2;
+                textTest = 1;
 
                 launchActivity();
             }
         });
-            }
+    }
 
 
     private void launchActivity() {
 
         Intent intent = new Intent(this, Test3Code.class);
-        intent.putExtra("option", textTest);
+        intent.putExtra("option", result + textTest);
         startActivity(intent);
     }
 }

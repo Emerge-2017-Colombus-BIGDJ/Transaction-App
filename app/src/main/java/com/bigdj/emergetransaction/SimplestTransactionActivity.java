@@ -76,6 +76,8 @@ public class SimplestTransactionActivity extends AppCompatActivity {
                 count--;
             }
         });
+
+        Helper.makeViewFlash(button, this);
     }
 
     @Override
