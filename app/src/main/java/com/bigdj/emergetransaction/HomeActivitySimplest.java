@@ -11,7 +11,7 @@ import android.widget.Button;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class HomeActivitySimplest extends AppCompatActivity {
+public class HomeActivitySimplest extends KairosActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,5 +32,7 @@ public class HomeActivitySimplest extends AppCompatActivity {
 
         final AppCompatActivity activity = this;
         Helper.makeViewFlash(purchase, activity);
+
+        initializeCamera();
     }
 }
