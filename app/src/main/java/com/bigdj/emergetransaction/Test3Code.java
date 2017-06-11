@@ -47,11 +47,11 @@ public class Test3Code extends AppCompatActivity {
     private void launchActivity() {
         Intent intent;
         if(option > 6) {
-            intent = new Intent(this, MatHomeActivity.class);
+            intent = new Intent(this, HomeActivityMat.class);
         } else if(option >= 4)
-            intent = new Intent(this, SimpleHomeActivity.class);
+            intent = new Intent(this, HomeActivitySimple.class);
         else
-            intent = new Intent(this, SimplestHomeActivity.class);
+            intent = new Intent(this, HomeActivitySimplest.class);
         intent.putExtra("option", option);
         startActivity(intent);
     }

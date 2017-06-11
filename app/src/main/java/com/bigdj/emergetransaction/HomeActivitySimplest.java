@@ -11,7 +11,7 @@ import android.widget.Button;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class SimplestHomeActivity extends AppCompatActivity {
+public class HomeActivitySimplest extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class SimplestHomeActivity extends AppCompatActivity {
         purchase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SimplestTransactionActivity
+                Intent intent = new Intent(getApplicationContext(), TransactionActivitySimplest
                         .class);
                 startActivity(intent);
             }

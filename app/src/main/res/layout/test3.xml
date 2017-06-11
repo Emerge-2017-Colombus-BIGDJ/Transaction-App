@@ -6,13 +6,6 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-    <TextureView
-        android:id="@+id/texture"
-        android:layout_width="1dp"
-        android:layout_height="1dp"
-        android:layout_alignParentTop="true"
-        />
-
     <TextView
         android:id="@+id/textView2"
         android:layout_width="match_parent"

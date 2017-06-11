@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.bigdj.emergetransaction.tempactivity">
+    tools:context="com.bigdj.emergetransaction.KairosActivity">
     <TextureView
         android:id="@+id/texture"
         android:layout_width="1dp"

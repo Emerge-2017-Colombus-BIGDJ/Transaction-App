@@ -23,7 +23,7 @@ import android.widget.TextView;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class MatPurchaseView extends AppCompatActivity {
+public class PurchaseViewMat extends KairosActivity {
 
     boolean firstRun = true;
 
@@ -43,6 +43,7 @@ public class MatPurchaseView extends AppCompatActivity {
             setContentView(R.layout.purchase_view_main_mat);
         else
             setContentView(R.layout.purchase_view_main_mat1);
+        initializeCamera();
 
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorAccentDark));
 

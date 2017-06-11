@@ -9,12 +9,7 @@
     android:layout_marginTop="2dp"
     android:foreground="?android:attr/selectableItemBackground"
     android:orientation="vertical">
-    <TextureView
-        android:id="@+id/texture"
-        android:layout_width="1dp"
-        android:layout_height="1dp"
-        android:layout_alignParentTop="true"
-        />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -53,10 +48,10 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="Cost: $11.99"
-            android:textStyle="bold"
             android:textAlignment="center"
             android:textColor="?android:textColorPrimary"
-            android:textSize="20sp"/>
+            android:textSize="20sp"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="match_parent"

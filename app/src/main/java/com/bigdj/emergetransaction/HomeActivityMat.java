@@ -3,13 +3,10 @@ package com.bigdj.emergetransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.transition.Slide;
 import android.view.View;
-import android.view.MenuItem;
 
-public class MatHomeActivity extends AppCompatActivity {
+public class HomeActivityMat extends KairosActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +20,7 @@ public class MatHomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Slide slide = new Slide();
                 //slide.setDuration(500);
-                Intent intent = new Intent(getApplicationContext(), MatPurchaseView.class);
+                Intent intent = new Intent(getApplicationContext(), PurchaseViewMat.class);
                 intent.putExtra("item", 0);
                 startActivity(intent);
             }
@@ -34,7 +31,7 @@ public class MatHomeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //Slide slide = new Slide();
                 //slide.setDuration(500);
-                Intent intent = new Intent(getApplicationContext(), MatPurchaseView.class);
+                Intent intent = new Intent(getApplicationContext(), PurchaseViewMat.class);
                 intent.putExtra("item", 1);
                 startActivity(intent);
             }
@@ -44,9 +41,11 @@ public class MatHomeActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), MatTransactionActivity.class);
+                Intent intent = new Intent(getApplicationContext(), TransactionActivityMat.class);
                 startActivity(intent);
             }
         });
+
+        initializeCamera();
     }
 }

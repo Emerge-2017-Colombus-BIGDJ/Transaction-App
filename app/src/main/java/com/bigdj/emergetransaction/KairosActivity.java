@@ -1,7 +1,9 @@
 package com.bigdj.emergetransaction;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -57,14 +59,16 @@ import java.net.URL;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import javax.net.ssl.HttpsURLConnection;
 
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-public class tempactivity extends AppCompatActivity {
+public class KairosActivity extends AppCompatActivity {
     private static final String TAG = "AndroidCameraApi";
     private Button takePictureButton;
     private TextureView textureView;
@@ -88,10 +92,23 @@ public class tempactivity extends AppCompatActivity {
     private Handler mBackgroundHandler;
     private HandlerThread mBackgroundThread;
 
+    Map<String, Class<?>> activities = new HashMap<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tempactivity);
+        activities.put("HomeActivityMat", HomeActivityMat.class);
+        activities.put("HomeActivitySimple", HomeActivitySimple.class);
+        activities.put("HomeActivitySimplest", HomeActivitySimplest.class);
+        activities.put("SuccessActivityMat", SuccessActivityMat.class);
+        activities.put("SuccessActivitySimple", SuccessActivitySimple.class);
+        activities.put("SuccessActivitySimplest", SuccessActivitySimplest.class);
+        activities.put("TransactionActivityMat", TransactionActivityMat.class);
+        activities.put("TransactionActivitySimple", TransactionActivitySimple.class);
+        activities.put("TransactionActivitySimplest", TransactionActivitySimplest.class);
+    }
+
+    public void initializeCamera() {
         textureView = (TextureView) findViewById(R.id.texture);
         assert textureView != null;
         textureView.setSurfaceTextureListener(textureListener);
@@ -111,7 +128,33 @@ public class tempactivity extends AppCompatActivity {
             }
         };
         Timer timer = new Timer();
-        timer.schedule(timertask, 1000, 1000);
+        timer.schedule(timertask, 2000, 1000);
+    }
+
+    public void changeActivity(int id) {
+        Toast.makeText(this, this.getClass().getSimpleName(), Toast.LENGTH_LONG).show();
+        String name = this.getClass().getSimpleName();
+        name = name.replace("Mat", "");
+        name = name.replace("Simple", "");
+        name = name.replace("Simplest", "");
+        switch(id) {
+            case 1:
+                name += "Simplest";
+                break;
+            case 2:
+                name += "Simple";
+                break;
+            case 3:
+                name += "Mat";
+                break;
+            case 4:
+                name += "Simple";
+                break;
+            case 5:
+                name += "Mat";
+                break;
+        }
+        startActivity(new Intent(this, activities.get(name)));
     }
 
     TextureView.SurfaceTextureListener textureListener = new TextureView.SurfaceTextureListener() {
@@ -134,6 +177,7 @@ public class tempactivity extends AppCompatActivity {
         public void onSurfaceTextureUpdated(SurfaceTexture surface) {
         }
     };
+
     private final CameraDevice.StateCallback stateCallback = new CameraDevice.StateCallback() {
         @Override
         public void onOpened(CameraDevice camera) {
@@ -300,6 +344,7 @@ public class tempactivity extends AppCompatActivity {
                                 String status = (String) transaction.get("subject_id");
                                 Toast.makeText(getApplicationContext(), status, Toast
                                         .LENGTH_SHORT).show();
+                                changeActivity(Integer.valueOf(status));
                             } catch(JSONException e) {
                                 Toast.makeText(getApplicationContext(), "ERR0R", Toast
                                         .LENGTH_SHORT).show();
@@ -323,15 +368,18 @@ public class tempactivity extends AppCompatActivity {
                 reader.setOnImageAvailableListener(readerListener, mBackgroundHandler);
                 final CameraCaptureSession.CaptureCallback captureListener = new
                         CameraCaptureSession.CaptureCallback() {
-                    @Override
-                    public void onCaptureCompleted(CameraCaptureSession session, CaptureRequest
-                            request, TotalCaptureResult result) {
-                        super.onCaptureCompleted(session, request, result);
-                        //Toast.makeText(tempactivity.this, "Saved:" + file, Toast.LENGTH_SHORT)
-                        // .show();
-                        createCameraPreview();
-                    }
-                };
+                            @Override
+                            public void onCaptureCompleted(CameraCaptureSession session,
+                                                           CaptureRequest
+                                                                   request, TotalCaptureResult
+                                                                   result) {
+                                super.onCaptureCompleted(session, request, result);
+                                //Toast.makeText(tempactivity.this, "Saved:" + file, Toast
+                                // .LENGTH_SHORT)
+                                // .show();
+                                createCameraPreview();
+                            }
+                        };
                 cameraDevice.createCaptureSession(outputSurfaces, new CameraCaptureSession
                         .StateCallback() {
                     @Override
@@ -404,8 +452,8 @@ public class tempactivity extends AppCompatActivity {
                     PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager
                     .PERMISSION_GRANTED) {
-                ActivityCompat.requestPermissions(tempactivity.this, new String[]{Manifest
-                        .permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                ActivityCompat.requestPermissions(KairosActivity.this, new String[]{Manifest
+                                .permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                         REQUEST_CAMERA_PERMISSION);
                 return;
             }
@@ -459,11 +507,12 @@ public class tempactivity extends AppCompatActivity {
         super.onResume();
         Log.e(TAG, "onResume");
         startBackgroundThread();
-        if(textureView.isAvailable()) {
-            openCamera();
-        } else {
-            textureView.setSurfaceTextureListener(textureListener);
-        }
+        if(textureView != null)
+            if(textureView.isAvailable()) {
+                openCamera();
+            } else {
+                textureView.setSurfaceTextureListener(textureListener);
+            }
     }
 
     @Override

@@ -26,7 +26,7 @@ import java.util.Date;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class MatPurchaseSuccess extends AppCompatActivity {
+public class SuccessActivityMat extends KairosActivity {
 
     boolean firstRun = true;
 
@@ -42,6 +42,8 @@ public class MatPurchaseSuccess extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.purchase_success_main_mat);
+
+        takePicture();
 
         fab = (FloatingActionButton) findViewById(R.id.fab);
         container = (RelativeLayout) findViewById(R.id.container);
@@ -145,7 +147,7 @@ public class MatPurchaseSuccess extends AppCompatActivity {
         Slide slide = new Slide();
         slide.setDuration(600);
         getWindow().setExitTransition(slide);
-        Intent intent = new Intent(this, MatHomeActivity.class);
+        Intent intent = new Intent(this, HomeActivityMat.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         //ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(this, (View)fab, "reveal");

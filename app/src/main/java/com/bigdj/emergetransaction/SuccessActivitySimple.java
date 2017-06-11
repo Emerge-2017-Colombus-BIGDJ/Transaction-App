@@ -15,12 +15,12 @@ import java.util.Date;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class SimplestSuccessActivity extends AppCompatActivity {
+public class SuccessActivitySimple extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.purchase_success_main_simplest);
+        setContentView(R.layout.purchase_success_main_simple);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -33,12 +33,10 @@ public class SimplestSuccessActivity extends AppCompatActivity {
         home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), SimplestHomeActivity.class);
+                Intent intent = new Intent(getApplicationContext(), HomeActivitySimple.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }
         });
-
-        Helper.makeViewFlash(home, this);
     }
 }

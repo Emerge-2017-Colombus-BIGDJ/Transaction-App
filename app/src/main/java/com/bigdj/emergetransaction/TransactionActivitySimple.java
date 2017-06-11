@@ -2,9 +2,6 @@ package com.bigdj.emergetransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -15,7 +12,7 @@ import android.widget.Button;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class SimpleTransactionActivity extends AppCompatActivity {
+public class TransactionActivitySimple extends AppCompatActivity {
     int count = 0;
 
     @Override
@@ -39,7 +36,7 @@ public class SimpleTransactionActivity extends AppCompatActivity {
                         findViewById(R.id.simple3).setVisibility(View.VISIBLE);
                         break;
                     case 2:
-                        Intent intent = new Intent(getApplicationContext(), SimpleSuccessActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), SuccessActivitySimple.class);
                         startActivity(intent);
                         break;
                 }

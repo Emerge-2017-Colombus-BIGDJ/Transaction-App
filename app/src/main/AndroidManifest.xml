@@ -23,7 +23,7 @@
                 android:resource="@xml/provider_paths"/>
         </provider>
         <activity
-            android:name=".tempactivity"
+            android:name=".HomeActivityMat"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -35,7 +35,7 @@
         </activity>
         <activity
             android:screenOrientation="portrait"
-            android:name=".MatTransactionActivity"
+            android:name=".TransactionActivityMat"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
@@ -47,42 +47,42 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".MatPurchaseSuccess"
+            android:name=".SuccessActivityMat"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".MatHomeActivity"
+            android:name=".KairosActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".MatPurchaseView"
+            android:name=".PurchaseViewMat"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".SimpleHomeActivity"
+            android:name=".HomeActivitySimple"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".SimpleTransactionActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name=".SimpleSuccessActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity
-            android:name=".SimplestTransactionActivity"
+            android:name=".TransactionActivitySimple"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".SimplestSuccessActivity"
+            android:name=".SuccessActivitySimple"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".TransactionActivitySimplest"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".SimplestHomeActivity"
+            android:name=".SuccessActivitySimplest"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".HomeActivitySimplest"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"
             android:theme="@style/AppTheme.NoActionBar"/>

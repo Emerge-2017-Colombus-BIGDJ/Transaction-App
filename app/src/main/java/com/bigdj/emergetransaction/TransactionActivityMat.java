@@ -14,7 +14,7 @@ import android.view.View;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class MatTransactionActivity extends AppCompatActivity {
+public class TransactionActivityMat extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +29,7 @@ public class MatTransactionActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(activity, MatPurchaseSuccess.class);
+                Intent intent = new Intent(activity, SuccessActivityMat.class);
                 ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, (View)fab, "reveal");
                 ActivityCompat.startActivity(activity, intent, options.toBundle());
             }

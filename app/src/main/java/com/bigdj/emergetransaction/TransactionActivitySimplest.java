@@ -12,7 +12,7 @@ import android.widget.Button;
  * Created by thatkawaiiguy on 6/10/17.
  */
 
-public class SimplestTransactionActivity extends AppCompatActivity {
+public class TransactionActivitySimplest extends AppCompatActivity {
     int count = 0;
 
     @Override
@@ -48,7 +48,7 @@ public class SimplestTransactionActivity extends AppCompatActivity {
                         findViewById(R.id.simple6).setVisibility(View.VISIBLE);
                         break;
                     case 5:
-                        Intent intent = new Intent(getApplicationContext(), SimplestSuccessActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), SuccessActivitySimplest.class);
                         startActivity(intent);
                         break;
                 }
