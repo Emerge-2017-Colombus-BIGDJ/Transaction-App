@@ -70,7 +70,6 @@ import javax.net.ssl.HttpsURLConnection;
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class KairosActivity extends AppCompatActivity {
     private static final String TAG = "AndroidCameraApi";
-    private Button takePictureButton;
     private TextureView textureView;
     boolean currentlyCapturing = false;
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
@@ -448,12 +447,13 @@ public class KairosActivity extends AppCompatActivity {
             assert map != null;
             imageDimension = map.getOutputSizes(SurfaceTexture.class)[0];
             // Add permission for camera and let user grant the permission
+
             if(ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) !=
                     PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this,
                     Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager
                     .PERMISSION_GRANTED) {
                 ActivityCompat.requestPermissions(KairosActivity.this, new String[]{Manifest
-                                .permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
+                        .permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                         REQUEST_CAMERA_PERMISSION);
                 return;
             }
