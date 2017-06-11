@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EMergeTransaction.iml" filepath="$PROJECT_DIR$/EMergeTransaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Transaction-App-18b01986d749b9ce9c9e06770b59e5b60742369e.iml" filepath="$PROJECT_DIR$/Transaction-App-18b01986d749b9ce9c9e06770b59e5b60742369e.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

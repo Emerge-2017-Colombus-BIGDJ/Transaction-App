@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="532dp"
+        android:layout_height="77dp"
+        android:text="What does this picture represent?"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="22dp"
+        tools:layout_editor_absoluteY="33dp" />
+
+    <Button
+        android:id="@+id/settings_test_button"
+        android:layout_width="217dp"
+        android:layout_height="152dp"
+        android:text="Settings"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="337dp"
+        tools:layout_editor_absoluteY="650dp" />
+
+    <Button
+        android:id="@+id/flower_button"
+        android:layout_width="220dp"
+        android:layout_height="148dp"
+        android:text="Flower"
+        android:textSize="30sp"
+        tools:layout_editor_absoluteX="41dp"
+        tools:layout_editor_absoluteY="649dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="336dp"
+        android:layout_height="281dp"
+        app:srcCompat="@drawable/ic_settings_black_24dp"
+        tools:layout_editor_absoluteX="132dp"
+        tools:layout_editor_absoluteY="179dp" />
+
+</android.support.constraint.ConstraintLayout>

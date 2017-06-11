@@ -22,7 +22,7 @@
         android:layout_marginStart="68dp" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/reaction_button"
         style="@style/Widget.AppCompat.Button.Colored"
         android:layout_width="544dp"
         android:layout_height="385dp"
