@@ -34,21 +34,41 @@
 
     </android.support.design.widget.AppBarLayout>
 
+
     <include
         android:id="@+id/simple1"
-        layout="@layout/make_transaction_content_simple"
+        layout="@layout/make_transaction_content_simplest"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <include
         android:id="@+id/simple2"
         android:visibility="gone"
-        layout="@layout/make_transaction_content_simple2"
+        layout="@layout/make_transaction_content_simplest2"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <include
         android:id="@+id/simple3"
         android:visibility="gone"
-        layout="@layout/make_transaction_content_simple3"
+        layout="@layout/make_transaction_content_simplest3"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+
+    <include
+        android:id="@+id/simple4"
+        android:visibility="gone"
+        layout="@layout/make_transaction_content_simplest4"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <include
+        android:id="@+id/simple5"
+        android:visibility="gone"
+        layout="@layout/make_transaction_content_simplest5"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+    <include
+        android:id="@+id/simple6"
+        android:visibility="gone"
+        layout="@layout/make_transaction_content_simplest6"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 
     <LinearLayout

@@ -11,6 +11,7 @@
     tools:showIn="@layout/activity_main_mat">
 
     <include
+        android:id="@+id/first"
         layout="@layout/transaction_list_item_mat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,7 +21,8 @@
         android:layout_marginTop="8dp"/>
 
     <include
-        layout="@layout/transaction_list_item_mat"
+        android:id="@+id/second"
+        layout="@layout/transaction_list_item_mat1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="2dp"

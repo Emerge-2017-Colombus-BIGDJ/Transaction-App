@@ -25,6 +25,8 @@ import android.widget.TextView;
 
 public class MatPurchaseSuccess extends AppCompatActivity {
 
+    boolean firstRun = true;
+
     FloatingActionButton fab;
 
     RelativeLayout container;
@@ -54,7 +56,21 @@ public class MatPurchaseSuccess extends AppCompatActivity {
         setupEnterAnimation();
     }
 
+    @Override
+    protected void onPostResume() {
+        super.onPostResume();
+
+        if (!firstRun) {
+            container.setVisibility(View.VISIBLE);
+            realContainer.setVisibility(View.VISIBLE);
+            imageButton.setVisibility(View.VISIBLE);
+            title.setVisibility(View.VISIBLE);
+        }
+        firstRun = false;
+    }
+
     private void setupEnterAnimation() {
+
         Transition transition = TransitionInflater.from(this).inflateTransition(R.transition
                 .changebounds_with_arcmotion);
         transition.setDuration(500);
