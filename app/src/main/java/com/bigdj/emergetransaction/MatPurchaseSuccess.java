@@ -19,6 +19,9 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * Created by thatkawaiiguy on 6/10/17.
  */
@@ -45,6 +48,10 @@ public class MatPurchaseSuccess extends AppCompatActivity {
         realContainer = (CardView) findViewById(R.id.realContainer);
         imageButton = (ImageButton) findViewById(R.id.close);
         title = (TextView) findViewById(R.id.title);
+        TextView time = (TextView) findViewById(R.id.time);
+        SimpleDateFormat sdf = new SimpleDateFormat("K:mm a");
+        String currentDate = sdf.format(new Date());
+        time.setText(currentDate);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             @Override

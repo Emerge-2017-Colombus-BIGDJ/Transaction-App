@@ -135,6 +135,7 @@
                         android:textSize="20sp"/>
 
                     <TextView
+                        android:id="@+id/time"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="10:30 PM"
@@ -163,7 +164,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="06/10/2017"
+                        android:text="06/11/2017"
                         android:textAlignment="center"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="22sp"/>

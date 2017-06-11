@@ -78,7 +78,7 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="$10.99"
+                        android:text="$8.99"
                         android:textAlignment="center"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="22sp"/>
