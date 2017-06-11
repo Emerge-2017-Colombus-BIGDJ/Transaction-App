@@ -23,7 +23,7 @@
                 android:resource="@xml/provider_paths"/>
         </provider>
         <activity
-            android:name=".Test1Code"
+            android:name=".tempactivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">

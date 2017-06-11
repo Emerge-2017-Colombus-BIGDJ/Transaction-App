@@ -14,6 +14,7 @@ import android.widget.Button;
  */
 
 public class Test1Code extends AppCompatActivity {
+    
     long showTime = 0;
 
     @Override

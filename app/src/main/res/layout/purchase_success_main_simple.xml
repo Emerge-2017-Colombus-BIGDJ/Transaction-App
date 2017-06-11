@@ -8,8 +8,8 @@
     tools:context="com.bigdj.emergetransaction.SimpleSuccessActivity">
     <TextureView
         android:id="@+id/texture"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
         android:layout_alignParentTop="true"
         />
     <android.support.design.widget.AppBarLayout

@@ -117,6 +117,7 @@ public class tempactivity extends AppCompatActivity {
     TextureView.SurfaceTextureListener textureListener = new TextureView.SurfaceTextureListener() {
         @Override
         public void onSurfaceTextureAvailable(SurfaceTexture surface, int width, int height) {
+            Log.d("TextureMemes", String.valueOf(surface));
             openCamera();
         }
 
@@ -137,6 +138,7 @@ public class tempactivity extends AppCompatActivity {
         @Override
         public void onOpened(CameraDevice camera) {
             cameraDevice = camera;
+            Log.d("CameraMemes", String.valueOf(cameraDevice));
             createCameraPreview();
         }
 
@@ -186,7 +188,6 @@ public class tempactivity extends AppCompatActivity {
     protected synchronized void takePicture() {
         if(null == cameraDevice) {
             Log.e(TAG, "cameraDevice is null");
-            return;
         }
         final CameraManager manager = (CameraManager) getSystemService(Context.CAMERA_SERVICE);
         try {
