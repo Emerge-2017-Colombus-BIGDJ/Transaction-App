@@ -12,6 +12,7 @@ import android.support.v7.widget.CardView;
 import android.transition.Slide;
 import android.transition.Transition;
 import android.transition.TransitionInflater;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -42,7 +43,13 @@ public class SuccessActivityMat extends KairosActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.purchase_success_main_mat);
-
+        TextView aprovalCode = (TextView) findViewById(R.id.approvalCode);
+        aprovalCode.setText("Loading...");
+        while(aprovalCode.getText() == "Loading...") {
+            if(TransactionActivityMat.approvalCode != null) {
+               aprovalCode.setText(TransactionActivityMat.approvalCode);
+            }
+        }
         fab = (FloatingActionButton) findViewById(R.id.fab);
         container = (RelativeLayout) findViewById(R.id.container);
         realContainer = (CardView) findViewById(R.id.realContainer);
@@ -77,7 +84,6 @@ public class SuccessActivityMat extends KairosActivity {
     }
 
     private void setupEnterAnimation() {
-
         Transition transition = TransitionInflater.from(this).inflateTransition(R.transition
                 .changebounds_with_arcmotion);
         transition.setDuration(500);

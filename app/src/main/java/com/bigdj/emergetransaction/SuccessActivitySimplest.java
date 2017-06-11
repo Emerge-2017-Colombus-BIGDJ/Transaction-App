@@ -21,6 +21,15 @@ public class SuccessActivitySimplest extends KairosActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.purchase_success_main_simplest);
+        TextView aprovalCode = (TextView) findViewById(R.id.approvalCode);
+        aprovalCode.setText("Loading...");
+        while(aprovalCode.getText() == "Loading...") {
+            if(TransactionActivityMat.approvalCode != null) {
+                if(!TransactionActivityMat.approvalCode.isEmpty()){
+                aprovalCode.setText(TransactionActivityMat.approvalCode);
+                }
+            }
+        }
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

@@ -202,7 +202,7 @@
                         android:id="@+id/approvalCode"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="83842"
+                        android:text=""
                         android:textAlignment="center"
                         android:textColor="?android:textColorPrimary"
                         android:textSize="22sp"/>
